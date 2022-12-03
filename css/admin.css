@@ -1,0 +1,38 @@
+.nav_bg_color,  .nav_bg_color ul
+{
+    background: #EEEEEE;
+
+}
+.nav_bg_color
+{
+    border-bottom: 2px solid #708090;
+}
+.dropdown-item
+{
+    border-bottom: 1px solid #D1D1D1;
+}
+
+.nav_bg_color .nav-link:hover
+{
+    background: #D1D1D1;
+    margin: 1px;
+    border-radius: 5px;
+}
+.dropdown-item:hover
+{
+    background: #D1D1D1;
+    margin: 1px;
+    border-radius: 5px;
+}
+.navbar-light .navbar-nav .nav-link, .dropdown-item
+{
+    color:#2F4F4F;
+}
+
+.shadow-lg
+{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+.employee_img {
+    border: 2px solid red;
+}

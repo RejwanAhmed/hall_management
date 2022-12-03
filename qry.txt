@@ -1,0 +1,6 @@
+// For creating total_incoming_resource view
+SELECT r.id, r.resource_name, SUM(i.number_of_resources) FROM resource_name as r LEFT JOIN incoming_resource as i ON r.id = i.resource_id GROUP BY i.resource_id ORDER BY r.id ASC
+
+
+//For creating total_outgoing_resource view
+SELECT r.id, r.resource_name, SUM(o.number_of_resources) FROM resource_name as r LEFT JOIN outgoing_resource as o ON r.id = o.resource_id GROUP BY o.resource_id ORDER BY r.id ASC 

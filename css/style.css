@@ -1,0 +1,211 @@
+/* @font-face {
+  font-family: "Roboto";
+  src: url("fonts.Robot-Regular");
+} */
+body
+{
+    font-family: 'sans-serif';
+
+}
+.nav_bg_color, .nav_bg_color ul
+{
+    background-color: #025950;
+}
+.nav_bg_color
+{
+    border-bottom: 2px solid lightblue;
+}
+.navbar-light .navbar-nav .nav-link
+{
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.dropdown-menu .dropdown-item
+{
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.navbar-light .navbar-nav .nav-link:hover
+{
+    color: #e63449;
+    background-color: black;
+    border-radius: 5px;
+}
+
+.dropdown-menu .dropdown-item:hover
+{
+    color: #e63449;
+    background-color: black;
+    border-radius: 5px;
+}
+.navbar-light .navbar-nav .nav-link, .dropdown-item
+{
+    color:white;
+    /* font-family: 'Roboto', cursive; */
+    font-family: 'sans-serif';
+
+}
+.navbar-light .navbar-nav .nav-link
+{
+    margin-left: 20px;
+}
+.navbar-nav .settings_dropdown {
+    margin-left: -43px;
+}
+@media screen and (max-width: 992px) {
+    .navbar-nav .settings_dropdown {
+        margin-left: 0px;
+    }
+}
+
+.shadow-lg
+{
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+}
+.employee_img {
+    border: 3px solid #21A688;
+    padding: 5px;
+    transition: border .15s ease-in-out, border-radius .15s ease-in-out;
+}
+.employee_img:hover
+{
+    border: 5px solid #025950;
+    border-radius: 50%;
+}
+.card-header {
+    padding: .75rem 1.25rem;
+    margin-bottom: 0;
+    background-image: linear-gradient(#45896F, #21A688);
+    border-bottom: 1px solid rgba(0,0,0,.125);
+}
+.card_header_color
+{
+    color: white;
+    font-weight: bold;
+}
+.nav-tabs .nav-link
+{
+    font-family: 'sans-serif';
+    color:#45896F;
+    font-weight: bold;
+}
+.nav-tabs .account_dropdown .dropdown-item
+{
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.nav-tabs .nav-link
+{
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.nav-tabs .account_dropdown .dropdown-item
+{
+    font-family: 'sans-serif';
+    color:#45896F;
+    font-weight: bold;
+}
+.nav-tabs .account_dropdown .dropdown-item:hover
+{
+    color:red;
+    border-radius: 5px;
+}
+.nav-tabs .nav-link:hover
+{
+    color:red;
+    background-color: black;
+    border-radius: 5px;
+}
+.employee_view h5
+{
+    background-color: #025950  ;
+    color:white;
+    margin-left:20px;
+    margin-right:20px;
+    padding: 2px;
+}
+.employee_view:hover
+{
+    text-decoration: none;
+}
+.employee_view h5
+{
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.employee_view h5:hover
+{
+    color: red;
+    background-color: black;
+}
+.employee_page_link .link
+{
+    background-color: #e9ecef;
+    border: 1px solid #ced4da;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-radius: .25rem;
+}
+.employee_page_link a:hover
+{
+    text-decoration: none;
+}
+.btn_color
+{
+    color:#26A685;
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.btn_color:hover
+{
+    color: red;
+    background-color: black;
+}
+.btn_color_employee
+{
+    background-color: #26A685;
+    color:white;
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.btn_color_employee:hover
+{
+    color: red;
+    background-color: black;
+}
+.input-group-text {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: .375rem .75rem;
+    margin-bottom: 0;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #26A685;
+    text-align: center;
+    white-space: nowrap;
+    background-color: white;
+    border: 1px solid #ced4da;
+    border-right-color: rgb(206, 212, 218);
+    border-right-style: solid;
+    border-right-width: 1px;
+}
+.page-item.active .page-link
+{
+    color: red;
+    background-color: black;
+    font-size: 20px;
+}
+.page-item .page-link
+{
+    background-color: #26A685;
+    color:white;
+    font-size: 20px;
+    transition: color 1000ms ease, background-color 500ms ease;
+}
+.page-item .page-link:hover
+{
+    color: red;
+    background-color: black;
+}
+label
+{
+    font-weight: bold;
+}

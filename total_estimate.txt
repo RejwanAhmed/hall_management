@@ -1,0 +1,127 @@
+<?php include("database_connection.php");?>
+<?php include('header.php')?>
+<?php include('account_header.php')?>
+<div class="container tab-pane"><br>
+    <div class="row justify-content-center">
+        <div class="col-lg-12 col-12" id = "source_div">
+            <div class="card">
+                <div class="card-header">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <h3 class ="text-center card_header_color text-uppercase">Total Estimation <span><i class="fas fa-poll-h"></i></span></h3>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <table class = "table table-bordered table-hover text-center table-responsive-sm ">
+                        <tr>
+                            <thead class ="thead-light">
+                                <th>Year</th>
+                                <th>Total Student Fees</th>
+                                <th>Total Donation</th>
+                                <th>Total Expense</th>
+                            </thead>
+                        </tr>
+                        <?php
+                        // Start of donation information year wise qry
+                        $donation_information_qry_year_wise = "SELECT * , SUM(`amount`) as donation_amount FROM `donation_information` GROUP BY `year` ORDER BY `year` ASC";
+                        $run_donation_information_qry_year_wise = mysqli_query($conn, $donation_information_qry_year_wise);
+                        $donation_amount_array = array();
+                        $donation_year_array = array();
+                        while($row = mysqli_fetch_assoc($run_donation_information_qry_year_wise))
+                        {
+                            array_push($donation_amount_array,$row['donation_amount']);
+                            array_push($donation_year_array,$row['year']);
+                        }
+                        $total_donation_row = count($donation_year_array);
+                        // End of donation information year wise qry
+
+                        // Start of student payment information year wise qry
+                        $student_payment_details_qry_year_wise = "SELECT * , SUM(`amount`) as student_total_fees FROM `student_payment_information` GROUP BY `year` ORDER BY `year` ASC";
+                        $run_student_payment_details_qry_year_wise = mysqli_query($conn, $student_payment_details_qry_year_wise);
+                        $student_amount_array = array();
+                        $student_year_array = array();
+                        while($row = mysqli_fetch_assoc($run_student_payment_details_qry_year_wise))
+                        {
+                            array_push($student_amount_array,$row['student_total_fees']);
+                            array_push($student_year_array,$row['year']);
+                        }
+                        $total_student_row = count($student_year_array);
+                        // End of student payment information year wise qry
+
+                        // Start of expense information year wise qry
+                        $expense_information_qry_year_wise = "SELECT * , SUM(`amount`) FROM `expense_information` GROUP BY `year` ORDER BY `year` ASC";
+                        $run_expense_information_qry_year_wise = mysqli_query($conn, $expense_information_qry_year_wise);
+                        $expense_amount_array = array();
+                        $expense_year_array = array();
+                        while($row = mysqli_fetch_assoc($run_expense_information_qry_year_wise))
+                        {
+                            array_push($expense_amount_array,$row['SUM(`amount`)']);
+                            array_push($expense_year_array,$row['year']);
+                        }
+                        $total_expense_row = count($expense_year_array);
+                        // End of expense information year wise qry
+
+                        // smallest year
+                        $smallest_year = min($donation_year_array['0'], $student_year_array['0'], $expense_year_array['0']);
+
+                        // Largest Year
+                        $largest_year =  max(end($donation_year_array), end($student_year_array), end($expense_year_array));
+                        for($i=$smallest_year,$j=0,$k=0,$l=0;$i<=$largest_year;$i++)
+                        {
+                            ?>
+                            <tr>
+                                <td><?php echo $i; ?></td>
+                                <?php
+                                    if($i==$student_year_array[$j])
+                                    {
+                                        echo "<td>$student_amount_array[$j]</td>";
+                                        if(count($student_year_array)-1!=$j)
+                                        {
+                                            $j++;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        echo "<td><i class = text-danger>(empty)</i></td>";
+                                    }
+                                    if($i==$donation_year_array[$k])
+                                    {
+                                        echo "<td>$donation_amount_array[$k]</td>";
+                                        if(count($donation_year_array)-1!=$k)
+                                        {
+                                            $k++;
+                                        }
+                                    }
+                                    else
+                                    {
+                                        echo "<td><i class = text-danger>(empty)</i></td>";
+                                    }
+                                    if($i==$expense_year_array[$l])
+                                    {
+                                        echo "<td>$expense_amount_array[$l]</td>";
+                                        if(count($expense_year_array)-1!=$l)
+                                        {
+                                            $l++;
+                                        }
+
+                                    }
+                                    else
+                                    {
+                                        echo "<td><i class = text-danger>(empty)</i></td>";
+                                    }
+                                ?>
+                            </tr>
+                            <?php
+                        }
+                        ?>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<?php include('account_footer.php')?>
+<!--End of Nav Tabs -->
+<?php include('footer.php')?>
